@@ -6,27 +6,53 @@ namespace MPESB.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        // GET: Home
+        public ActionResult Index()
         {
-            _logger = logger;
-        }
-
-        public IActionResult Index()
-        {
+            ViewBag.Title = "Home";
             return View();
         }
 
-        public IActionResult Privacy()
+        public ActionResult About()
         {
+            ViewBag.Title = "About Us";
             return View();
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        public ActionResult Dashboard()
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            ViewBag.Title = "Dashboard";
+            return View();
+        }
+
+        public ActionResult Mission()
+        {
+            ViewBag.Title = "Mission & Vision";
+            return View();
+        }
+
+        public ActionResult OnlineForm()
+        {
+            ViewBag.Title = "Online Form";
+            return View();
+        }
+
+        public ActionResult AdmitCard()
+        {
+            ViewBag.Title = "Admit Card";
+            return View();
+        }
+
+        public ActionResult Results()
+        {
+            ViewBag.Title = "Results";
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Title = "Contact Us";
+            return View();
         }
     }
 }
