@@ -1,0 +1,9 @@
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\rpswa.dswa.cache.json
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.GeneratedMSBuildEditorConfig.editorconfig
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.AssemblyInfoInputs.cache
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.AssemblyInfo.cs
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.csproj.CoreCompileInputs.cache
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.MvcApplicationPartsAssemblyInfo.cache
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.RazorAssemblyInfo.cache
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.RazorAssemblyInfo.cs
+D:\Anuja\Projects\.Net\Git\MPESB\obj\Debug\net8.0\MPESB.sourcelink.json
