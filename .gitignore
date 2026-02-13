@@ -31,3 +31,20 @@ publish/
 # ASP.NET Core temp files
 wwwroot/
 *.db
+
+# Visual Studio user files
+*.suo
+*.user
+*.userosscache
+
+# Visual Studio cache/index
+*.vsidx
+.vs/
+
+# Database logs
+*.db-wal
+
+# Temporary binaries
+.bin/
+bin/
+obj/
