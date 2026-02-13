@@ -18,13 +18,16 @@
                     <p>M.P. Employees Selection Board</p>
                 </div>
             </div>
+            <div class="right-side">
             <div class="contact-section">
                 <div><i class="fas fa-phone"></i> Contact No. :- 0755-2578801-02</div>
                 <div><i class="fas fa-envelope"></i> Mail Id forComplain: <a href="mailto:complaint.esb@@mp.gov.in">complaint.esb@@mp.gov.in</a></div>
                 <div><i class="fas fa-phone-alt"></i> Toll Free No.:- 18002337899</div>
             </div>
+
             <div>
                 <button class="hindi-btn">हिंदी</button>
+            </div>
             </div>
         </div>
     </div>
@@ -192,6 +195,19 @@
             } else {
                 document.querySelector('.main-navigation').classList.remove('scrolled');
             }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const currentPath = window.location.pathname.toLowerCase();
+            const sidebarLinks = document.querySelectorAll('.left-sidebar .sidebar-menu a');
+
+            sidebarLinks.forEach(link => {
+                const linkPath = link.getAttribute('href').toLowerCase();
+                if (currentPath.includes(linkPath) || currentPath === linkPath) {
+                    link.classList.add('active');
+                }
+            });
         });
     </script>
 </body>
