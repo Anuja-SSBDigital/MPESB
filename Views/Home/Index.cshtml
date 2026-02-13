@@ -1,8 +1,34 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="content-box">
+    <h3>Important Information</h3>
+    <p>
+        Welcome to the official website of Madhya Pradesh Employees Selection Board (MPESB).
+        This portal provides information about various recruitment examinations, admit cards,
+        results, and other important notifications.
+    </p>
+</div>
+
+<div class="content-box">
+    <h3>About MPESB</h3>
+    <p>
+        The Madhya Pradesh Employees Selection Board (Madhya Pradesh Karmchari Chayan Mandal)
+        is a state government organization responsible for conducting recruitment examinations
+        for various government departments in Madhya Pradesh.
+    </p>
+</div>
+
+<div class="content-box">
+    <h3>Our Services</h3>
+    <p style="margin-bottom: 10px;">We provide the following services:</p>
+    <ul style="margin-left: 20px; line-height: 2;">
+        <li>Conducting competitive examinations for Group A, B, C, and D posts</li>
+        <li>Publishing recruitment notifications and advertisements</li>
+        <li>Issuing admit cards for registered candidates</li>
+        <li>Declaring examination results and merit lists</li>
+        <li>Providing online application facilities</li>
+    </ul>
 </div>
