@@ -1,0 +1,33 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# VS Code / Rider / IDE settings
+.vscode/
+.idea/
+
+# Visual Studio cache files
+*.vs/
+
+# Logs
+*.log
+
+# Debug files
+*.pdb
+*.ilk
+*.idb
+
+# Publish output
+publish/
+*.deploy
+
+
+# ASP.NET Core temp files
+wwwroot/
+*.db
