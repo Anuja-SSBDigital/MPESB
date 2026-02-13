@@ -1,6 +1,11 @@
-# Build results
+# ========================
+# .NET Core / Visual Studio / VS Code
+# ========================
+
+# Build output
 bin/
 obj/
+.bin/
 
 # User-specific files
 *.user
@@ -8,17 +13,16 @@ obj/
 *.userosscache
 *.sln.docstates
 
-# VS Code / Rider / IDE settings
+# IDE settings
 .vscode/
 .idea/
 
-# Visual Studio cache files
-*.vs/
+# Visual Studio cache / index
+.vs/
+*.vsidx
 
-# Logs
+# Logs and debug files
 *.log
-
-# Debug files
 *.pdb
 *.ilk
 *.idb
@@ -27,24 +31,20 @@ obj/
 publish/
 *.deploy
 
-
-# ASP.NET Core temp files
+# ASP.NET Core temp files / wwwroot
 wwwroot/
+
+# Database files
 *.db
-
-# Visual Studio user files
-*.suo
-*.user
-*.userosscache
-
-# Visual Studio cache/index
-*.vsidx
-.vs/
-
-# Database logs
 *.db-wal
+*.db-shm
 
-# Temporary binaries
-.bin/
-bin/
-obj/
+# NuGet packages
+*.nupkg
+*.snupkg
+packages/
+
+# Temporary files
+*.tmp
+*.temp
+*.cache
