@@ -49,21 +49,95 @@
     </div>
 
     <!-- ================= NAVIGATION ================= -->
-    <nav class="main-navigation">
+    <nav class="main-navigation" role="navigation" aria-label="Main Navigation">
         <div class="nav-container">
 
             <div class="nav-toggle" id="navToggle">
                 <i class="fas fa-bars"></i>
             </div>
 
+           @*  <ul>
+                <li ><a href="@Url.Action("Index", "Home")"><i class="fas fa-home"></i> HOME PAGE</a></li>
+                <li><a href="@Url.Action("About", "Home")" class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "About" ? "active" : "")"><i class="fas fa-info-circle"></i> ABOUT US</a></li>
+                <li><a href="@Url.Action("Dashboard", "Home")"><i class="fas fa-tachometer-alt"></i> DASHBOARD</a></li>
+                <li><a href="@Url.Action("Mission", "Home")"><i class="fas fa-bullseye"></i> MISSION & VISION</a></li>
+                <li><a href="@Url.Action("OnlineForm", "Home")"><i class="fas fa-file-alt"></i> ONLINE FORM</a></li>
+                <li><a href="@Url.Action("AdmitCard", "Home")"><i class="fas fa-id-card"></i> ADMIT CARD</a></li>
+                <li><a href="@Url.Action("Results", "Home")"><i class="fas fa-check-circle"></i> RESULTS</a></li>
+                <li><a href="@Url.Action("Contact", "Home")"><i class="fas fa-envelope"></i> CONTACT US</a></li>
+            </ul> *@
             <ul>
-                <li><a href="@Url.Action("Index", "Home")">HOME</a></li>
-                <li><a href="@Url.Action("About", "Home")">ABOUT</a></li>
-                <li><a href="@Url.Action("Dashboard", "Home")">DASHBOARD</a></li>
-                <li><a href="@Url.Action("OnlineForm", "Home")">ONLINE FORM</a></li>
-                <li><a href="@Url.Action("AdmitCard", "Home")">ADMIT CARD</a></li>
-                <li><a href="@Url.Action("Results", "Home")">RESULTS</a></li>
-                <li><a href="@Url.Action("Contact", "Home")">CONTACT</a></li>
+                <li>
+                    <a href="@Url.Action("Index", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "Index"
+                                            ? "active" : "")">
+                        <i class="fas fa-home"></i> HOME PAGE
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("About", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "About"
+                                            ? "active" : "")">
+                        <i class="fas fa-info-circle"></i> ABOUT US
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Dashboard", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "Dashboard"
+                                            ? "active" : "")">
+                        <i class="fas fa-tachometer-alt"></i> DASHBOARD
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Mission", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "Mission"
+                                            ? "active" : "")">
+                        <i class="fas fa-bullseye"></i> MISSION & VISION
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("OnlineForm", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "OnlineForm"
+                                            ? "active" : "")">
+                        <i class="fas fa-file-alt"></i> ONLINE FORM
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("AdmitCard", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "AdmitCard"
+                                            ? "active" : "")">
+                        <i class="fas fa-id-card"></i> ADMIT CARD
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Results", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "Results"
+                                            ? "active" : "")">
+                        <i class="fas fa-check-circle"></i> RESULTS
+                    </a>
+                </li>
+
+                <li>
+                    <a href="@Url.Action("Contact", "Home")"
+                       class="@(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" &&
+                                            ViewContext.RouteData.Values["action"]?.ToString() == "Contact"
+                                            ? "active" : "")">
+                        <i class="fas fa-envelope"></i> CONTACT US
+                    </a>
+                </li>
             </ul>
 
         </div>
@@ -138,17 +212,39 @@
     <!-- ================= SCRIPTS ================= -->
     @RenderSection("scripts", required: false)
 
-    <script>
-        // Hamburger Toggle
-        const navToggle = document.getElementById("navToggle");
-        const navMenu = document.querySelector(".main-navigation ul");
+@*     <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get current path (without domain/port/query string)
+            const currentPath = window.location.pathname.toLowerCase().replace(/\/$/, ""); // remove trailing slash
 
-        if (navToggle && navMenu) {
-            navToggle.addEventListener("click", function () {
-                navMenu.classList.toggle("active");
+            // Find all nav links
+            const navLinks = document.querySelectorAll(".main-navigation a");
+
+            navLinks.forEach(link => {
+                // Get the href and clean it (remove domain if absolute, keep relative)
+                let linkPath = link.getAttribute("href")?.toLowerCase();
+
+                if (!linkPath) return;
+
+                // Handle relative URLs generated by Url.Action (they usually start with /)
+                if (linkPath.startsWith("/")) {
+                    linkPath = linkPath.replace(/\/$/, ""); // remove trailing slash
+                }
+
+                // Special case: homepage "/" should match "/Home/Index" or "/"
+                if (linkPath === "/" || linkPath === "/home" || linkPath === "/home/index") {
+                    linkPath = "/home/index";
+                }
+
+                // Mark as active if paths match
+                if (currentPath === linkPath || currentPath.startsWith(linkPath + "/")) {
+                    link.classList.add("active");
+                    // Optional: also highlight parent <li> if you want
+                    // link.closest("li")?.classList.add("active");
+                }
             });
-        }
-    </script>
+        });
+    </script> *@
 
 </body>
 </html>
