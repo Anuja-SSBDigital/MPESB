@@ -190,7 +190,7 @@ body {
         .main-navigation a.active,
         .main-navigation a[aria-current="page"] {
             color: white;
-            background: #1e40af; /* strong but not too bright blue */
+            background: #080562; /* strong but not too bright blue */
             box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 4px 20px rgba(30, 64, 175, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
             font-weight: 700;
         }
@@ -495,7 +495,7 @@ body {
 /* ============================= */
 
 .news-ticker {
-    background: linear-gradient(90deg, #3b82f6, #60a5fa);
+    background: linear-gradient(90deg, #0e326c, #080562);
     color: #fff;
     border-radius: 12px;
     padding: 12px 15px;
@@ -550,7 +550,7 @@ body {
 .promo-link {
     display: inline-block;
     padding: 8px 20px;
-    background: #3b82f6;
+    background: linear-gradient(90deg, #0e326c, #080562);
     color: #fff;
     text-decoration: none;
     border-radius: 20px;
@@ -638,4 +638,24 @@ body {
     .main-navigation ul {
         flex-direction: column;
     }
+}
+.vertical-marquee {
+    height: 40px;
+    overflow: hidden;
+}
+
+    .vertical-marquee span {
+        display: block; /* Stack vertically */
+        animation: scrollUp 12s linear infinite;
+    }
+
+@keyframes scrollUp {
+    0% {
+        transform: translateY(100%);
+    }
+    /* Start below */
+    100% {
+        transform: translateY(-100%);
+    }
+    /* End above */
 }
