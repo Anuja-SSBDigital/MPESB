@@ -127,103 +127,137 @@ body {
 /* ============================= */
 /* NAVIGATION */
 /* ============================= */
+/* ============================= */
+/* NAVIGATION - DARK & MODERN   */
+/* ============================= */
 
 .main-navigation {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.10), rgba(255, 255, 255, 0.32));
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e2e8f0;
+    background: #0f172a;                      /* Very dark navy / near-black base */
+    border-bottom: 1px solid #1e293b;         /* Subtle separator */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    transition: background 0.4s ease;
 }
+
+.main-navigation.scrolled {
+    background: #0f172a;                      /* Can stay same or become slightly darker */
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.65);
+}
+
+/* Container */
 .main-navigation ul {
     max-width: 1400px;
     margin: 0 auto;
+    padding: 0 20px;
     list-style: none;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;                 /* centered layout looks cleaner */
     align-items: center;
+    flex-wrap: wrap;                         /* better mobile fallback */
 }
 
-.main-navigation a {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 20px 28px; /* Bolder padding */
-    color: #0f172a; /* Near-black for max contrast */
-    text-decoration: none;
-    font-weight: 600; /* Heavier base weight */
-    font-size: clamp(15px, 1.2vw, 17px); /* Larger, authoritative */
-    letter-spacing: 0.3px; /* Subtle spacing for strength */
-    transition: all 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    position: relative;
-    border-radius: 14px;
-    overflow: hidden;
-    text-transform: uppercase; /* Strong typography */
-    font-size: 14px; /* Adjust after uppercase */
+/* Links */
+    .main-navigation a {
+        color: #cbd5e1; /* light cool gray — very readable */
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 15px;
+        letter-spacing: 0.4px;
+        text-transform: uppercase;
+        padding: 18px 24px;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); /* Smoother easing */
+        transform: translateY(0);
+        overflow: hidden; /* For background fill effect */
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+/* Hover state */
+        .main-navigation a:hover {
+            color: #93c5fd;
+            background: rgba(30, 64, 175, 0.2); /* Slightly stronger tint */
+            box-shadow: 0 0 0 1px rgba(147, 197, 253, 0.3), /* Subtle border glow */
+            0 4px 20px rgba(30, 64, 175, 0.4), /* Lifted glow */
+            inset 0 0 0 1px rgba(147, 197, 253, 0.1); /* Inner shine */
+            transform: translateY(-2px) scale(1.02); /* Micro-lift + subtle enlarge */
+        }
+
+/* Active / current page */
+        .main-navigation a.active,
+        .main-navigation a[aria-current="page"] {
+            color: white;
+            background: #1e40af; /* strong but not too bright blue */
+            box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2), 0 4px 20px rgba(30, 64, 175, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+        }
+
+/* Simple & clean underline effect */
+        .main-navigation a::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 24px;
+            right: 24px;
+            height: 4px; /* Thicker for impact */
+            background: linear-gradient(90deg, #60a5fa, #93c5fd); /* Gradient for shine */
+            transform: scaleX(0) scaleY(0.8); /* Start thinner */
+            transform-origin: center;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 3px 3px 0 0;
+        }
+
+        .main-navigation a:hover::after,
+        .main-navigation a.active::after {
+            transform: scaleX(1) scaleY(1); /* Expand full width + thickness */
+        }
+
+/* Remove shine / heavy pseudo elements for cleaner look */
+.main-navigation a::before {
+    display: none;   /* we don't need the shine sweep on dark theme */
 }
 
-    /* Strong shine sweep */
-    .main-navigation a::before {
-        content: '';
+/* Mobile / hamburger menu support */
+.nav-toggle {
+    color: #cbd5e1;
+    font-size: 1.6rem;
+    padding: 16px;
+    cursor: pointer;
+}
+
+@media (max-width: 992px) {
+    .main-navigation ul {
+        flex-direction: column;
         position: absolute;
-        top: 0;
-        left: -120%;
-        width: 120%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-        transition: left 0.7s ease;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #0f172a;
+        border-top: 1px solid #1e293b;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.5);
     }
 
-    .main-navigation a:hover {
-        /*color: #ffffff;
-        background: linear-gradient(135deg, #2563eb, #1e40af);*/ /* Solid blue gradient */
-        /*transform: translateY(-4px) scale(1.05);*/ /* Dramatic lift + scale */
-        box-shadow: 0 15px 35px rgba(37, 99, 235, 0.4);
+    .main-navigation ul.active {
+        max-height: 600px;   /* adjust according to number of items */
     }
 
-    .main-navigation a:hover::before {
-        left: 120%;
+    .main-navigation a {
+        padding: 16px 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
+        justify-content: flex-start;
     }
 
-    /* Bold animated underline */
     .main-navigation a::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 6px;
-        width: 0;
-        height: 4px; /* Thicker */
-        background: linear-gradient(90deg, #358ff4, rgb(117 136 253 / 80%));
-        border-radius: 3px;
-        transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Overshoot animation */
-        transform: translateX(-50%);
-        box-shadow: 0 4px 12px rgba(255,255,255,0.6);
+        left: 30px;
+        right: 30px;
     }
-
-    .main-navigation a:hover::after {
-        width: 90%;
-        box-shadow: 0 6px 20px rgba(255,255,255,0.7);
-    }
-
-    /* Active/Power State */
-    .main-navigation a.active,
-    .main-navigation a[aria-current="page"] {
-        color: #ffffff;
-        background: linear-gradient(135deg, #1e40af, #2563eb);
-        box-shadow: 0 8px 25px rgba(30, 64, 175, 0.5);
-        font-weight: 700;
-    }
-
-    .main-navigation a.active::after {
-        width: 90%;
-        background: rgba(255,255,255,1);
-        animation: pulse 2s infinite;
-    }
-
+}
 
 /* ============================= */
 /* MAIN CONTAINER */
